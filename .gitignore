@@ -1,0 +1,6 @@
+/vendor
+/test
+*.sum
+/.idea
+/identifier.sqlite
+
