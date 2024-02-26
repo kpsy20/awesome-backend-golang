@@ -1,8 +1,12 @@
 package rooms
 
 type RoomService interface {
-	GetRoomList()
+	GetRoomList() (roomList *Rooms, err error)
 	RegisterRoom()
 	ModifyRoom()
 	RemoveRoom()
+}
+
+type Repository interface {
+	SelectRoomList() (res *Rooms, err error)
 }

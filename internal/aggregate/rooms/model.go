@@ -8,6 +8,7 @@ type (
 		CreateTime  string `json:"create_time" xml:"create_time" db:"create_time"`
 	}
 	Rooms struct {
-		Rooms []Room `json:"rooms" xml:"rooms"`
+		Rooms   []Room `json:"rooms" xml:"rooms"`
+		Success bool   `json:"success" xml:"success"`
 	}
 )
