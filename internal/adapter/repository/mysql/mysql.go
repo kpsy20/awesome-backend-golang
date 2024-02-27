@@ -2,6 +2,7 @@ package mysql
 
 import (
 	"database/sql"
+	"fmt"
 	"time"
 )
 
@@ -18,7 +19,9 @@ type Config struct {
 
 func NewDB(c *Config) (db *sql.DB, err error) {
 	time.Local, _ = time.LoadLocation("Asia/Seoul")
-	db, err = sql.Open("mysql", c.Host)
+	dbUrl := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s",
+		c.User, c.Passwd, c.Host, c.Port, c.DBName)
+	db, err = sql.Open("mysql", dbUrl)
 	if err != nil {
 		panic(err)
 	}
