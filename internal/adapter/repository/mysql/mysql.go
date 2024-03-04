@@ -17,11 +17,11 @@ type Config struct {
 	ConnMaxLifeTime string `envDefault:"1m"`
 }
 
-func NewDB(c *Config) (db *sql.DB, err error) {
+func NewDB(c *Config) (db *sql.DB) {
 	time.Local, _ = time.LoadLocation("Asia/Seoul")
 	dbUrl := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s",
 		c.User, c.Passwd, c.Host, c.Port, c.DBName)
-	db, err = sql.Open("mysql", dbUrl)
+	db, err := sql.Open("mysql", dbUrl)
 	if err != nil {
 		panic(err)
 	}
