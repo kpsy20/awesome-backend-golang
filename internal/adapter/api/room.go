@@ -59,11 +59,11 @@ func (a *API) RemoveRoom(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	roomList, err := a.rooms.RemoveRoom()
+	err := a.rooms.RemoveRoom()
 	if err != nil {
 		HandleError(res, req, err)
 		return
 	}
 
-	render.Respond(res, req, roomList)
+	render.Respond(res, req, nil)
 }
