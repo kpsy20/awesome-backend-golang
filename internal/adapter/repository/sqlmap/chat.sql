@@ -1,11 +1,17 @@
--- query: GetRoomList
-SELECT id, name, admin_user_id, create_time FROM room;
+-- query: SelectRoomList
+select id, name, admin_user_id, create_time from room;
 
--- query: RegisterRoom
-INSERT INTO room (name, id, admin_user_id) VALUES (?, ?, ?);
+-- query: SelectRoomByNameAndAdminUserId
+select id, name, admin_user_id, create_time from room where name = ? and admin_user_id = ?;
 
--- query: RemoveRoom
-DELETE FROM room WHERE id = ?;
+-- query: SelectRoomById
+select id, name, admin_user_id, create_time from room where id = ?;
 
--- query: ModifyRoom
-UPDATE room SET name = ? WHERE id = ?;
+-- query: InsertRoom
+insert into room (name, admin_user_id) values (?, ?);
+
+-- query: UpdateRoom
+update room set name = ? where id = ?;
+
+-- query: DeleteRoom
+delete from room where id = ?;

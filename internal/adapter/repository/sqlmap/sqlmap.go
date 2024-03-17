@@ -9,10 +9,12 @@ import (
 var efs embed.FS
 
 type Map struct {
-	GetRoomList  string `query:"GetRoomList"`
-	RegisterRoom string `query:"RegisterRoom"`
-	RemoveRoom   string `query:"RemoveRoom"`
-	ModifyRoom   string `query:"ModifyRoom"`
+	SelectRoomList                 string `query:"SelectRoomList"`
+	SelectRoomByNameAndAdminUserId string `query:"SelectRoomByNameAndAdminUserId"`
+	SelectRoomById                 string `query:"SelectRoomById"`
+	InsertRoom                     string `query:"InsertRoom"`
+	DeleteRoom                     string `query:"DeleteRoom"`
+	UpdateRoom                     string `query:"UpdateRoom"`
 }
 
 func New() *Map { return sqload.MustLoadFromFS[Map](efs) }
